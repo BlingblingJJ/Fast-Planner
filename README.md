@@ -100,14 +100,10 @@ All planning algorithms along with other key modules, such as mapping, are imple
   Currently it includes a kinodynamic path searching that respects the dynamics of quadrotors.
   It also contains a sampling-based topological path searching algorithm to generate multiple topologically distinctive paths that capture the structure of the 3D environments.
   前端路径搜索算法：目前该模块包含了kinodynamic路径搜索，其考虑了四旋翼的动力学；还包含了基于采样的拓扑路径搜索算法，可生成多条拓扑上不同的路径以捕获3D环境信息。
-- __bspline__: A implementation of the B-spline-based trajectory representation.
-- 基于B样条的轨迹表示方式的具体实现。
-- __bspline_opt__: The gradient-based trajectory optimization using B-spline trajectory.
-- 基于梯度的B样条轨迹优化。
-- __active_perception__: Perception-aware planning strategy, which enable to quadrotor to actively observe and avoid unknown obstacles, to appear in the future.
-- 具有感知意识的规划策略，使四旋翼能够主动观察和避免未知的障碍物。
-- __plan_manage__: High-level modules that schedule and call the mapping and planning algorithms. Interfaces for launching the whole system, as well as the configuration files are contained here.
-- 调度和调用建图和规划算法的高级模块。包含了启动整个系统的接口及配置文件。
+- __bspline__: A implementation of the B-spline-based trajectory representation. 基于B样条的轨迹表示方式的具体实现。
+- __bspline_opt__: The gradient-based trajectory optimization using B-spline trajectory. 基于梯度的B样条轨迹优化。
+- __active_perception__: Perception-aware planning strategy, which enable to quadrotor to actively observe and avoid unknown obstacles, to appear in the future. 具有感知意识的规划策略，使四旋翼能够主动观察和避免未知的障碍物。
+- __plan_manage__: High-level modules that schedule and call the mapping and planning algorithms. Interfaces for launching the whole system, as well as the configuration files are contained here. 调度和调用建图和规划算法的高级模块。包含了启动整个系统的接口及配置文件。
 
 Besides the folder __fast_planner__, a lightweight __uav_simulator__ is used for testing.
 
@@ -142,7 +138,7 @@ Now you are ready to [run a simulation](#4-run-simulations).
 
 ### Use GPU Depth Rendering (can be skipped optionally)
 
-This step is not mandatory for running the simulations. However, if you want to run the more realistic depth camera in __uav_simulator__, installation of [CUDA Toolkit](https://developer.nvidia.com/cuda-toolkit) is needed. Otherwise, a less realistic depth sensor model will be used.
+This step is not mandatory（非强制性的） for running the simulations. However, if you want to run the more realistic depth camera（更逼真的深度相机） in __uav_simulator__, installation of [CUDA Toolkit](https://developer.nvidia.com/cuda-toolkit) is needed. Otherwise, a less realistic depth sensor model will be used.
 
  The **local_sensing** package in __uav_simulator__ has the option of using GPU or CPU to render the depth sensor measurement. By default, it is set to CPU version in CMakeLists:
  
@@ -177,6 +173,7 @@ Several examples are provided below:
 
 In this method, a kinodynamic path searching finds a safe, dynamically feasible, and minimum-time initial trajectory in the discretized control space. 
 Then the smoothness and clearance of the trajectory are improved by a B-spline optimization.
+在离散的控制空间搜索安全、动力学可行且时间最短的初始轨迹。然后通过B样条优化提升轨迹的平滑度和间隙。
 To test this method, run:
 
 ```
@@ -198,7 +195,7 @@ Related algorithms are detailed in [this paper](https://ieeexplore.ieee.org/docu
 
 ### Topological Path Searching & Path-guided Optimization
 
-This method features searching for multiple trajectories in distinctive topological classes. Thanks to the strategy, the solution space is explored more thoroughly, avoiding local minima and yielding better solutions.
+This method features searching for multiple trajectories in distinctive topological classes. Thanks to the strategy, the solution space is explored more thoroughly, avoiding local minima and yielding better solutions. 在不同的拓扑类中搜索多条轨迹，解空间得以被更彻底地探索，避免了局部极小值，从而生成更好的解。
 Similarly, run:
 
 ```
