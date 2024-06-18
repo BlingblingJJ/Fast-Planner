@@ -95,14 +95,19 @@ Please cite at least one of our papers if you use this project in your research:
 
 All planning algorithms along with other key modules, such as mapping, are implemented in __fast_planner__:
 
-- __plan_env__: The online mapping algorithms. It takes in depth image (or point cloud) and camera pose (odometry) pairs as input, do raycasting to update a probabilistic volumetric map, and build an Euclidean signed distance filed (ESDF) for the planning system. 
+- __plan_env__: The online mapping algorithms. It takes in depth image (or point cloud) and camera pose (odometry) pairs as input, do raycasting to update a probabilistic volumetric map, and build an Euclidean signed distance filed (ESDF) for the planning system. 在线建图算法：以深度图（或点云）和相机姿态（odometry）对作为输入，通过射线法更新概率容积图，并建立欧式符号距离场。
 - __path_searching__: Front-end path searching algorithms. 
   Currently it includes a kinodynamic path searching that respects the dynamics of quadrotors.
-  It also contains a sampling-based topological path searching algorithm to generate multiple topologically distinctive paths that capture the structure of the 3D environments. 
+  It also contains a sampling-based topological path searching algorithm to generate multiple topologically distinctive paths that capture the structure of the 3D environments.
+  前端路径搜索算法：目前该模块包含了kinodynamic路径搜索，其考虑了四旋翼的动力学；还包含了基于采样的拓扑路径搜索算法，可生成多条拓扑上不同的路径以捕获3D环境信息。
 - __bspline__: A implementation of the B-spline-based trajectory representation.
+- 基于B样条的轨迹表示方式的具体实现。
 - __bspline_opt__: The gradient-based trajectory optimization using B-spline trajectory.
+- 基于梯度的B样条轨迹优化。
 - __active_perception__: Perception-aware planning strategy, which enable to quadrotor to actively observe and avoid unknown obstacles, to appear in the future.
+- 具有感知意识的规划策略，使四旋翼能够主动观察和避免未知的障碍物。
 - __plan_manage__: High-level modules that schedule and call the mapping and planning algorithms. Interfaces for launching the whole system, as well as the configuration files are contained here.
+- 调度和调用建图和规划算法的高级模块。包含了启动整个系统的接口及配置文件。
 
 Besides the folder __fast_planner__, a lightweight __uav_simulator__ is used for testing.
 
